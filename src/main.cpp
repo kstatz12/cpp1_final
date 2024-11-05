@@ -31,7 +31,7 @@ void UserSolver::solve(Board &board)
 }
 
 int main() {
-  Board b = Board(10, 10, 2);
+  Board b = Board(1000, 1000, 5);
 
   ExampleSolver es;
   es.solve(b);
