@@ -5,9 +5,14 @@ For our final we will be writing a solver for battleship!
 
 ## Compiling/Runing
 ### Windows
+- [CMake For Visual Studio Documentation](https://learn.microsoft.com/en-us/cpp/build/cmake-projects-in-visual-studio?view=msvc-170) Install Visual Studio 2022, Cmake Tools and C++ Tools on your home computer
+
+- Build/Run as normal
 
 ### Mac/Linux
-
+- run `./build.sh` in the root of the directory to compile the project for debugging
+- run `./build/battleship` to run the executable
+- to debug run `gdb build/battleship`
 
 ## Rules
 The board is 1000x1000 with 5 ships
@@ -49,3 +54,4 @@ using these return values you must devise an algorithm to find the 5 ships in fe
 | Code Uses Correct C++ Conventions | 30     |
 | Code is legible and followable    | 10     |
 | Code Compiles                     | 10     |
+
