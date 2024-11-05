@@ -13,7 +13,7 @@ public:
 void ExampleSolver::solve(Board &board) {
   for (int i = 0; i < board.getX(); i++) {
     for (int j = 0; j < board.getY(); j++) {
-      this->g->guess(i, j, board);
+      this->guesser->guess(i, j, board);
     }
   }
 }
@@ -27,7 +27,7 @@ public:
 void UserSolver::solve(Board &board)
 {
   //Your Implementation goes here
-  this->g->guess(1, 1, board);
+  this->guesser->guess(1, 1, board);
 }
 
 int main() {

@@ -1,7 +1,7 @@
 #include "solver.h"
 
-Solver::Solver() { this->g = new Guesser(); }
+Solver::Solver() { this->guesser = new Guesser(); }
 
-Solver::~Solver() { delete g; }
+Solver::~Solver() { delete guesser; }
 
-int Solver::score() { return this->g->getGuessCount(); }
+int Solver::score() { return this->guesser->getGuessCount(); }

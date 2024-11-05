@@ -6,7 +6,7 @@
 
 class Solver {
 protected:
-  Guesser *g;
+  Guesser *guesser;
 
 public:
   Solver();
