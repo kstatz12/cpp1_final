@@ -36,7 +36,7 @@ ReturnType Guesser::check_coordinates(uint32 x, uint32 y, Board &board) {
   unsigned int rows = grid->size();
   unsigned int cols = grid->at(0)->size();
 
-  if(x > rows || y > cols)
+  if(x >= rows || y >= cols)
   {
       return ReturnType::bad_guess;
   }

@@ -1,9 +1,9 @@
 #include "board.h"
 #include "types.h"
 
+#include <algorithm>
 #include <iostream>
 #include <random>
-#include <algorithm>
 #include <utility>
 
 Board::Board(uint32 x, uint32 y, uint32 ship_count) {
@@ -31,12 +31,14 @@ int Board::getShipCount() { return this->ship_count; }
 
 int Board::getX() { return this->grid->size(); }
 
-int Board::getY() { return this->grid->at(0)->size(); }
-
-std::vector<std::vector<mut_uint32>*>* Board::get_grid()
-{
-    return this->grid;
+int Board::getY() {
+  if (this->getX() > 0) {
+    return this->grid->at(0)->size();
+  }
+  return 0;
 }
+
+std::vector<std::vector<mut_uint32> *> *Board::get_grid() { return this->grid; }
 
 void Board::print() {
   for (const auto rowPtr : *grid) {
