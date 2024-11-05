@@ -1,5 +1,6 @@
 #include "solver.h"
 #include <stdexcept>
+#include <iostream>
 
 class ExampleSolver : public Solver {
 
@@ -13,7 +14,7 @@ public:
 void ExampleSolver::solve(Board &board) {
   for (int i = 0; i < board.getX(); i++) {
     for (int j = 0; j < board.getY(); j++) {
-      this->guesser->guess(i, j, board);
+      guess(i, j, board);
     }
   }
 }
@@ -27,7 +28,8 @@ public:
 void UserSolver::solve(Board &board)
 {
   //Your Implementation goes here
-  this->guesser->guess(1, 1, board);
+  ReturnType t = guess(1, 1, board);
+  std::cout << t << std::endl;
 }
 
 int main() {
