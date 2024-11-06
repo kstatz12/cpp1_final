@@ -10,12 +10,11 @@ protected:
 
   ReturnType guess(unsigned int x, unsigned int y, Board  &board);
 
-public:
-  Solver();
-  ~Solver();
-  virtual void solve(Board &board) = 0;
-  int score();
+   public:
+    Solver();
+    ~Solver();
+    virtual void solve(Board &board) = 0;
+    int score();
 };
 
-
-#endif // SOLVER_H_
+#endif  // SOLVER_H_

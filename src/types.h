@@ -5,4 +5,4 @@
 typedef unsigned const int uint32;
 typedef unsigned int mut_uint32;
 
-#endif // TYPES_H_
+#endif  // TYPES_H_
