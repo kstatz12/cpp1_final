@@ -5,10 +5,10 @@
 #include "guesser.h"
 
 class Solver {
-protected:
-  Guesser *guesser;
+   protected:
+    Guesser *guesser;
 
-  ReturnType guess(unsigned int x, unsigned int y, Board  &board);
+    ReturnType guess(unsigned int x, unsigned int y, Board &board);
 
    public:
     Solver();

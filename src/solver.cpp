@@ -7,5 +7,5 @@ Solver::~Solver() { delete guesser; }
 int Solver::score() { return this->guesser->getGuessCount(); }
 
 ReturnType Solver::guess(unsigned int x, unsigned int y, Board &board) {
-  return this->guesser->guess(x, y, board);
+    return this->guesser->guess(x, y, board);
 }

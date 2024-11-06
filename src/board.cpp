@@ -11,7 +11,7 @@ Board::Board(uint32 x, uint32 y, uint32 ship_count) {
     this->ship_count = ship_count;
     this->x = x;
     this->y = y;
-    this->grid = new std::vector<std::vector<mut_uint32>*>(x);
+    this->grid = new std::vector<std::vector<mut_uint32> *>(x);
     for (mut_uint32 i = 0; i < x; i++) {
         (*this->grid)[i] = new std::vector<mut_uint32>(y, 0);  // Initialize each cell to 0 directly
     }
@@ -31,18 +31,12 @@ int Board::getShipCount() { return this->ship_count; }
 
 int Board::getX() { return this->grid->size(); }
 
-<<<<<<< variant A
 int Board::getY() {
-  if (this->getX() > 0) {
-    return this->grid->at(0)->size();
-  }
-  return 0;
+    if (this->getX() > 0) {
+        return this->grid->at(0)->size();
+    }
+    return 0;
 }
->>>>>>> variant B
-int Board::getY() { return this->grid->at(0)->size(); }
-
-std::vector<std::vector<mut_uint32>*>* Board::get_grid() { return this->grid; }
-======= end
 
 std::vector<std::vector<mut_uint32> *> *Board::get_grid() { return this->grid; }
 
