@@ -1,4 +1,4 @@
-name: C++ Build with Visual Studio
+name: C++ Build for Windows and Linux
 
 on:
   push:
@@ -10,17 +10,38 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+        include:
+          - os: windows-latest
+            cmake-generator: "Visual Studio 16 2019"
+            msbuild-configuration: "Release"
+          - os: windows-latest
+            cmake-generator: "Visual Studio 17 2022"
+            msbuild-configuration: "Release"
+          - os: ubuntu-latest
+            cmake-generator: "Unix Makefiles"
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup MSBuild
-        uses: microsoft/setup-msbuild@v1
+      # Step for setting up CMake on Windows
+      - name: Setup CMake (Windows)
+        if: matrix.os == 'windows-latest'
+        uses: jwlawson/actions-setup-cmake@v1
+        with:
+          cmake-version: '3.x'  # Adjust as needed
+
+      # Install dependencies for Linux only
+      - name: Install dependencies (Linux)
+        if: matrix.os == 'ubuntu-latest'
+        run: sudo apt-get update && sudo apt-get install -y build-essential cmake
 
       - name: Configure CMake
-        run: cmake -S . -B build -G "Visual Studio 17 2022"
+        run: cmake -S . -B build -G "${{ matrix.cmake-generator }}"
 
       - name: Build with CMake
-        run: cmake --build build --config Release
+        run: cmake --build build --config ${{ matrix.msbuild-configuration }}
