@@ -1,5 +1,4 @@
 #include "guesser.h"
-
 #include <cstdint>
 
 int Guesser::getGuessCount() { return this->ctx.guess_count; }
