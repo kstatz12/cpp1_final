@@ -19,15 +19,14 @@ Board::Board(uint32 x, uint32 y, uint32 ship_count) {
 }
 
 Board::~Board() {
-    uint32 x = this->grid->size();
-    for (mut_uint32 i = 0; i < x; i++) {
+    size_t s = this->grid->size();
+    for (mut_uint32 i = 0; i < s; i++) {
         delete this->grid->at(i);
     }
-
     delete this->grid;
 }
 
-int Board::getShipCount() { return this->ship_count; }
+size_t Board::getShipCount() { return this->ship_count; }
 
 int Board::getX() { return this->grid->size(); }
 
