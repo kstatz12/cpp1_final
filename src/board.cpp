@@ -26,7 +26,7 @@ Board::~Board() {
     delete this->grid;
 }
 
-size_t Board::getShipCount() { return this->ship_count; }
+long Board::getShipCount() { return this->ship_count; }
 
 int Board::getX() { return this->grid->size(); }
 
