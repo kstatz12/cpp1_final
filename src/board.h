@@ -17,9 +17,9 @@ class Board {
     Board(uint32 x, uint32 y, uint32 ship_count);
     std::vector<std::vector<mut_uint32> *> *get_grid();
     void print();
-    long getShipCount();
-    long getX();
-    long getY();
+    size_t getShipCount();
+    size_t getX();
+    size_t getY();
     ~Board();
 };
 

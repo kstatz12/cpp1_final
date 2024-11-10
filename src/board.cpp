@@ -26,11 +26,11 @@ Board::~Board() {
     delete this->grid;
 }
 
-long Board::getShipCount() { return this->ship_count; }
+size_t Board::getShipCount() { return this->ship_count; }
 
-long Board::getX() { return this->grid->size(); }
+size_t Board::getX() { return this->grid->size(); }
 
-long Board::getY() {
+size_t Board::getY() {
     if (this->getX() > 0) {
         return this->grid->at(0)->size();
     }
@@ -49,14 +49,14 @@ void Board::print() {
 }
 
 void Board::random_fill(uint32 n) {
-    uint64 rows = this->grid->size();
-    uint64 cols = this->grid->front()->size();
+    size_t rows = this->grid->size();
+    size_t cols = this->grid->front()->size();
 
     std::vector<std::pair<mut_uint32, mut_uint32>> indices;
     indices.reserve(rows * cols);
 
-    for (mut_uint32 i = 0; i < rows; i++) {
-        for (mut_uint32 j = 0; j < cols; j++) {
+    for (size_t i = 0; i < rows; i++) {
+        for (size_t j = 0; j < cols; j++) {
             indices.emplace_back(i, j);
         }
     }
@@ -68,8 +68,8 @@ void Board::random_fill(uint32 n) {
     std::shuffle(indices.begin(), indices.end(), gen);
 
     for (mut_uint32 k = 0; k < n && k < indices.size(); k++) {
-        uint64 row = indices.at(k).first;
-        uint64 col = indices.at(k).second;
+        size_t row = indices.at(k).first;
+        size_t col = indices.at(k).second;
         this->grid->at(row)->at(col) = 1;
     }
 }
