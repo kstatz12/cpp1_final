@@ -27,8 +27,8 @@ constexpr bool safe_eq(int a, unsigned int b) {
 ReturnType Guesser::check_coordinates(uint32 x, uint32 y, Board &board) {
     const int directions[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
     auto grid = board.get_grid();
-    unsigned int rows = grid->size();
-    unsigned int cols = grid->at(0)->size();
+    auto rows = grid->size();
+    auto cols = grid->at(0)->size();
 
     if (x >= rows || y >= cols) {
         return ReturnType::bad_guess;

@@ -28,9 +28,9 @@ Board::~Board() {
 
 long Board::getShipCount() { return this->ship_count; }
 
-int Board::getX() { return this->grid->size(); }
+long Board::getX() { return this->grid->size(); }
 
-int Board::getY() {
+long Board::getY() {
     if (this->getX() > 0) {
         return this->grid->at(0)->size();
     }
@@ -48,7 +48,7 @@ void Board::print() {
     }
 }
 
-void Board::random_fill(const mut_uint32 ship_count) {
+void Board::random_fill(uint32 n) {
     uint64 rows = this->grid->size();
     uint64 cols = this->grid->front()->size();
 
@@ -67,7 +67,7 @@ void Board::random_fill(const mut_uint32 ship_count) {
 
     std::shuffle(indices.begin(), indices.end(), gen);
 
-    for (mut_uint32 k = 0; k < ship_count && k < indices.size(); k++) {
+    for (mut_uint32 k = 0; k < n && k < indices.size(); k++) {
         uint64 row = indices.at(k).first;
         uint64 col = indices.at(k).second;
         this->grid->at(row)->at(col) = 1;
