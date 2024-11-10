@@ -49,8 +49,8 @@ void Board::print() {
 }
 
 void Board::random_fill(const mut_uint32 ship_count) {
-    uint32 rows = this->grid->size();
-    uint32 cols = this->grid->front()->size();
+    uint64 rows = this->grid->size();
+    uint64 cols = this->grid->front()->size();
 
     std::vector<std::pair<mut_uint32, mut_uint32>> indices;
     indices.reserve(rows * cols);
@@ -68,8 +68,8 @@ void Board::random_fill(const mut_uint32 ship_count) {
     std::shuffle(indices.begin(), indices.end(), gen);
 
     for (mut_uint32 k = 0; k < ship_count && k < indices.size(); k++) {
-        uint row = indices.at(k).first;
-        uint col = indices.at(k).second;
+        uint64 row = indices.at(k).first;
+        uint64 col = indices.at(k).second;
         this->grid->at(row)->at(col) = 1;
     }
 }
