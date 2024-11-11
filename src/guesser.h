@@ -12,10 +12,10 @@ struct GuessContext {
 
 class Guesser {
     GuessContext ctx;
-    ReturnType check_coordinates(uint32 x, uint32 y, Board &board);
+    ReturnType check_coordinates(size_t x, size_t y, Board &board);
 
    public:
-    ReturnType guess(uint32 x, uint32 y, Board &board);
+    ReturnType guess(size_t x, size_t y, Board &board);
     int getGuessCount();
 };
 

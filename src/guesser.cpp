@@ -1,4 +1,5 @@
 #include "guesser.h"
+
 #include <cstdint>
 
 int Guesser::getGuessCount() { return this->ctx.guess_count; }
@@ -24,7 +25,7 @@ constexpr bool safe_eq(int a, unsigned int b) {
     return static_cast<int64_t>(a) == static_cast<int64_t>(b);
 }
 
-ReturnType Guesser::check_coordinates(uint32 x, uint32 y, Board &board) {
+ReturnType Guesser::check_coordinates(size_t x, size_t y, Board &board) {
     const int directions[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
     auto grid = board.get_grid();
     auto rows = grid->size();
@@ -52,7 +53,7 @@ ReturnType Guesser::check_coordinates(uint32 x, uint32 y, Board &board) {
     return ReturnType::miss;
 }
 
-ReturnType Guesser::guess(uint32 x, uint32 y, Board &board) {
+ReturnType Guesser::guess(size_t x, size_t y, Board &board) {
     this->ctx.guess_count += 1;
     return this->check_coordinates(x, y, board);
 }

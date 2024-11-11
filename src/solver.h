@@ -8,7 +8,7 @@ class Solver {
    protected:
     Guesser *guesser;
 
-    ReturnType guess(unsigned int x, unsigned int y, Board &board);
+    ReturnType guess(size_t x, size_t y, Board &board);
 
    public:
     Solver();
