@@ -1,5 +1,6 @@
 # Final
 
+![build](https://github.com/kstatz12/cpp1_final/actions/workflows/build.yml/badge.svg)
 # Requirements
 For our final we will be writing a solver for battleship!
 
