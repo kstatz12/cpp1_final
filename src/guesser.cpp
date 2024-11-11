@@ -4,27 +4,6 @@
 
 int Guesser::getGuessCount() { return this->ctx.guess_count; }
 
-constexpr bool safe_less_than(int a, unsigned int b) {
-    if (a < 0) {
-        return true;
-    }
-    return static_cast<int64_t>(a) < static_cast<int64_t>(b);
-}
-
-constexpr bool safe_greater_than(int a, unsigned int b) {
-    if (a < 0) {
-        return false;
-    }
-    return static_cast<int64_t>(a) < static_cast<int64_t>(b);
-}
-
-constexpr bool safe_eq(int a, unsigned int b) {
-    if (a < 0) {
-        return false;
-    }
-    return static_cast<int64_t>(a) == static_cast<int64_t>(b);
-}
-
 ReturnType Guesser::check_coordinates(size_t x, size_t y, Board &board) {
     const int directions[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
     auto grid = board.get_grid();
@@ -43,8 +22,8 @@ ReturnType Guesser::check_coordinates(size_t x, size_t y, Board &board) {
         size_t adjX = x + dir[0];
         size_t adjY = y + dir[1];
 
-        if (safe_greater_than(adjX, 0) && safe_less_than(adjX, rows) &&
-            safe_greater_than(adjY, 0) && safe_less_than(adjY, cols)) {
+        if (adjX > 0 && adjX < rows &&
+            adjY > 0 && adjY < cols) {
             if ((*grid)[adjX]->at(adjY) == 1) {
                 return ReturnType::miss;
             }
