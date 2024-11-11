@@ -40,8 +40,8 @@ ReturnType Guesser::check_coordinates(size_t x, size_t y, Board &board) {
     }
 
     for (const auto &dir : directions) {
-        int adjX = x + dir[0];
-        int adjY = y + dir[1];
+        size_t adjX = x + dir[0];
+        size_t adjY = y + dir[1];
 
         if (safe_greater_than(adjX, 0) && safe_less_than(adjX, rows) &&
             safe_greater_than(adjY, 0) && safe_less_than(adjY, cols)) {
