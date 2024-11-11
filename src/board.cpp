@@ -52,7 +52,7 @@ void Board::random_fill(uint32 n) {
     size_t rows = this->grid->size();
     size_t cols = this->grid->front()->size();
 
-    std::vector<std::pair<mut_uint32, mut_uint32>> indices;
+    std::vector<std::pair<size_t, size_t>> indices;
     indices.reserve(rows * cols);
 
     for (size_t i = 0; i < rows; i++) {
@@ -67,7 +67,7 @@ void Board::random_fill(uint32 n) {
 
     std::shuffle(indices.begin(), indices.end(), gen);
 
-    for (mut_uint32 k = 0; k < n && k < indices.size(); k++) {
+    for (size_t k = 0; k < n && k < indices.size(); k++) {
         size_t row = indices.at(k).first;
         size_t col = indices.at(k).second;
         this->grid->at(row)->at(col) = 1;
