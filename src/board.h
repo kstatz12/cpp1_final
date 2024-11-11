@@ -2,8 +2,10 @@
 #define BOARD_H_
 
 #include <vector>
+#include <cstddef>
 
 #include "types.h"
+
 
 class Board {
    private:
