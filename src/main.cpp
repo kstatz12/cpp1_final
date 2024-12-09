@@ -37,7 +37,7 @@ int main() {
     UserSolver us;
     us.solve(b);
 
-    if (es.score() > us.score()) {
+    if (es.score() < us.score()) {
         throw std::runtime_error("Not Efficient Enough");
     }
 }
